@@ -16,8 +16,8 @@ execute_retry = True
 
 db_name = 'postgres'
 pg_user = 'postgres'
-pg_pass = 'ramGLvp2k8q3FHx6qj3Y'
-pg_host = 'qr-sc.c5q54jv9pfqi.ap-south-1.rds.amazonaws.com'
+pg_pass = '#'
+pg_host = '#'
 pg_port = 5432
 engine_str = (
     f"postgresql+psycopg2://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{db_name}"
