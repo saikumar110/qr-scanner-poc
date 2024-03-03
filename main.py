@@ -6,7 +6,6 @@ from mangum import Mangum
 from db_config import DbHandler
 
 app = FastAPI()
-# Set MiddleWare
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,7 +27,7 @@ async def redirect_instagram(qr_id: str):
         return RedirectResponse(instagram_url)
 
     except Exception as e:
-        logger.error(traceback.format_exc())
+        print(traceback.format_exc())
         return RedirectResponse("https://www.instagram.com/")
 
 
@@ -42,7 +41,7 @@ async def map_qr_id(qr_id: str, username: str):
         instagram_url = f"https://www.instagram.com/{qr_details['username']}/"
         return {'message': "updated successfully", "url": instagram_url}
     except Exception as e:
-        logger.error(traceback.format_exc())
+        print(traceback.format_exc())
         return {'message': "Try again"}
 
 
