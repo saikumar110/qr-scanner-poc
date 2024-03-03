@@ -1,19 +1,10 @@
 import traceback
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from mangum import Mangum
 from db_config import DbHandler
 
 app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 @app.get("/scan-qr/{qr_id}")
 async def redirect_instagram(qr_id: str):
