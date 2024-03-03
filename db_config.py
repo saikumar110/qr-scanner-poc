@@ -1,6 +1,5 @@
 from time import time, sleep
 
-from fastapi.logger import logger
 from sqlalchemy import (
     MetaData,
     create_engine, Table, Integer, VARCHAR, Column, TIMESTAMP, UniqueConstraint, func,
@@ -10,17 +9,16 @@ from sqlalchemy.orm import declarative_base, configure_mappers
 import sqlalchemy as sql
 import sqlalchemy.exc as sql_exec
 
-
 # engine = create_engine(connection_string)
 
 use_sqlite = False  # Used in Table DDL as well
 rdbms_type = "postgres"
 execute_retry = True
 #FLxC17Jx2LvOB1hf
-db_name = 'scanner'
-pg_user = 'demoprojects21'
-pg_pass = 'iMwR7P2OeuQo'
-pg_host = 'ep-super-limit-a4qzfawc-pooler.us-east-1.aws.neon.tech'
+db_name = 'verceldb'
+pg_user = 'default'
+pg_pass = 'T6su5HVjeDic'
+pg_host = 'ep-withered-grass-a4pqfxfq-pooler.us-east-1.aws.neon.tech'
 pg_port = 5432
 engine_str = (
     f"postgresql+psycopg2://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{db_name}"
