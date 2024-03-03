@@ -6,14 +6,6 @@ from mangum import Mangum
 from db_config import DbHandler
 
 app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 @app.get("/scan-qr/{qr_id}")
 def redirect_instagram(qr_id: str):
