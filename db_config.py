@@ -14,7 +14,6 @@ import sqlalchemy.exc as sql_exec
 use_sqlite = False  # Used in Table DDL as well
 rdbms_type = "postgres"
 execute_retry = True
-#FLxC17Jx2LvOB1hf
 db_name = 'verceldb'
 pg_user = 'default'
 pg_pass = 'T6su5HVjeDic'
@@ -25,21 +24,21 @@ engine_str = (
 )
 temp_engine_str = f"postgresql+psycopg2://{pg_user}:{pg_pass}@{pg_host}:{pg_port}"
 
-if True:
-    try:
-        with create_engine(
-                engine_str, isolation_level="AUTOCOMMIT"
-        ).connect() as conn:
-            res = conn.execute(
-                f"select * from pg_database where datname='{db_name}';"
-            )
-            rows = res.rowcount > 0
-            if not rows:
-                # conn.execute('commit')
-                res_db = conn.execute(f"CREATE DATABASE {db_name};")
-                logger.info(f"DB created {db_name}. Response: {res_db.rowcount}")
-    except Exception as exc:
-        logger.error(exc)
+# if True:
+#     try:
+#         with create_engine(
+#                 engine_str, isolation_level="AUTOCOMMIT"
+#         ).connect() as conn:
+#             res = conn.execute(
+#                 f"select * from pg_database where datname='{db_name}';"
+#             )
+#             rows = res.rowcount > 0
+#             if not rows:
+#                 # conn.execute('commit')
+#                 res_db = conn.execute(f"CREATE DATABASE {db_name};")
+#                 logger.info(f"DB created {db_name}. Response: {res_db.rowcount}")
+#     except Exception as exc:
+#         logger.error(exc)
 
 metadata = MetaData()
 Base = declarative_base(metadata=metadata)
