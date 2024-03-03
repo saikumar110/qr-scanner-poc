@@ -10,14 +10,26 @@ from sqlalchemy.orm import declarative_base, configure_mappers
 import sqlalchemy as sql
 import sqlalchemy.exc as sql_exec
 
+# from sqlalchemy import URL, create_engine
+# connection_string = URL.create(
+#   'postgresql',
+#   username='demoprojects21',
+#   password='iMwR7P2OeuQo',
+#   host='ep-super-limit-a4qzfawc-pooler.us-east-1.aws.neon.tech'
+#   database='scanner',
+#   connect_args={'sslmode':'require'}
+# )
+
+# engine = create_engine(connection_string)
+
 use_sqlite = False  # Used in Table DDL as well
 rdbms_type = "postgres"
 execute_retry = True
-
-db_name = 'postgres'
-pg_user = 'postgres'
-pg_pass = '#'
-pg_host = '#'
+#FLxC17Jx2LvOB1hf
+db_name = 'scanner'
+pg_user = 'demoprojects21'
+pg_pass = 'iMwR7P2OeuQo'
+pg_host = 'ep-super-limit-a4qzfawc-pooler.us-east-1.aws.neon.tech'
 pg_port = 5432
 engine_str = (
     f"postgresql+psycopg2://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{db_name}"
