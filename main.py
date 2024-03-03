@@ -16,7 +16,7 @@ app.add_middleware(
 
 
 @app.get("/scan-qr/{qr_id}")
-async def redirect_instagram(qr_id: str):
+def redirect_instagram(qr_id: str):
     try:
         qr_details = DbHandler.get_qr_details(qr_id=qr_id)
 
@@ -32,7 +32,7 @@ async def redirect_instagram(qr_id: str):
 
 
 @app.post("/scan-qr")
-async def map_qr_id(qr_id: str, username: str):
+def map_qr_id(qr_id: str, username: str):
     try:
         qr_details = DbHandler.update_mapping(qr_id=qr_id, username=username)
 
