@@ -2,7 +2,7 @@ import traceback
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from mangum import Mangum
-# from db_config import DbHandler
+from db_config import DbHandler
 
 app = FastAPI()
 
