@@ -10,15 +10,6 @@ from sqlalchemy.orm import declarative_base, configure_mappers
 import sqlalchemy as sql
 import sqlalchemy.exc as sql_exec
 
-# from sqlalchemy import URL, create_engine
-# connection_string = URL.create(
-#   'postgresql',
-#   username='demoprojects21',
-#   password='iMwR7P2OeuQo',
-#   host='ep-super-limit-a4qzfawc-pooler.us-east-1.aws.neon.tech'
-#   database='scanner',
-#   connect_args={'sslmode':'require'}
-# )
 
 # engine = create_engine(connection_string)
 
