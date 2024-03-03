@@ -2,14 +2,15 @@ import traceback
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from mangum import Mangum
-from db_config import DbHandler
+# from db_config import DbHandler
 
 app = FastAPI()
+
 
 @app.get("/scan-qr/{qr_id}")
 async def redirect_instagram(qr_id: str):
     try:
-        qr_details = DbHandler.get_qr_details(qr_id=qr_id)
+        qr_details = "DbHandler.get_qr_details(qr_id=qr_id)"
 
         if not qr_details or not qr_details['username']:
             return RedirectResponse("https://www.instagram.com/")
@@ -25,7 +26,7 @@ async def redirect_instagram(qr_id: str):
 @app.post("/scan-qr")
 async def map_qr_id(qr_id: str, username: str):
     try:
-        qr_details = DbHandler.update_mapping(qr_id=qr_id, username=username)
+        qr_details = "DbHandler.update_mapping(qr_id=qr_id, username=username)"
 
         if not qr_details:
             return {'message': "Try again"}
@@ -36,9 +37,4 @@ async def map_qr_id(qr_id: str, username: str):
         return {'message': "Try again"}
 
 
-handler = Mangum(app)
 
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8000)
